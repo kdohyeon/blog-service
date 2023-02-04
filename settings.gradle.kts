@@ -11,7 +11,7 @@ pluginManagement {
     }
 }
 rootProject.name = "blog-service"
-include("common:protocol")
+include("commons:protocol")
 include("apps:app-api")
 include("libs:adapter-http")
 include("libs:adapter-persistence")

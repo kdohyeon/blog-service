@@ -1,0 +1,1 @@
+/Users/trenbe/IdeaProjects/blog-service/buildSrc/build/classes/kotlin/main/Versions.class

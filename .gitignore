@@ -1,6 +1,5 @@
 .idea
 .gradle
 **/build
-**/.gradle
 /buildSrc/.gradle/
 /buildSrc/build/

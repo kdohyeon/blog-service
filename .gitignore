@@ -2,4 +2,4 @@
 .gradle
 **/build
 **/.gradle
-buildSrc/.gradle
+buildSrc/.gradle/**

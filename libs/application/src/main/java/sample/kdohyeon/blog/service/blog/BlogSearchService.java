@@ -1,7 +1,7 @@
 package sample.kdohyeon.blog.service.blog;
 
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import sample.kdohyeon.blog.contract.RestApiType;
 import sample.kdohyeon.blog.converter.blog.BlogDtoConverter;
 import sample.kdohyeon.blog.port.in.blog.SearchBlogUseCase;
 import sample.kdohyeon.blog.port.in.blog.command.BlogSearchCommand;
@@ -22,13 +22,15 @@ public class BlogSearchService implements SearchBlogUseCase {
     }
 
     @Override
-    public BlogDto search(BlogSearchCommand command, Pageable pageable) {
+    public BlogDto search(BlogSearchCommand command) {
         var clause = BlogSearchClause.builder()
                 .keyword(command.getKeyword())
                 .sort(command.getSort())
                 .url(command.getUrl())
+                .pageable(command.getPageable())
+                .restApiType(RestApiType.KAKAO_SEARCH_BLOGS)
                 .build();
-        var result = searchBlogPort.searchBlogs(clause, pageable);
+        var result = searchBlogPort.searchBlogs(clause);
         return blogDtoConverter.convert(result);
     }
 }

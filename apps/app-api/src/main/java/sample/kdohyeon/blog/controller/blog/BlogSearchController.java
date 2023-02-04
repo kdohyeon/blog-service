@@ -27,14 +27,14 @@ public class BlogSearchController {
             @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "10") int size
     ) {
+        var pageable = PageRequest.of(page, size);
         var command = BlogSearchCommand.builder()
                 .keyword(requestBody.getKeyword())
                 .url(requestBody.getUrl())
                 .sort(requestBody.getSort())
+                .pageable(pageable)
                 .build();
 
-        var pageable = PageRequest.of(page, size);
-
-        return ResultResponse.ok(searchBlogUseCase.search(command, pageable));
+        return ResultResponse.ok(searchBlogUseCase.search(command));
     }
 }

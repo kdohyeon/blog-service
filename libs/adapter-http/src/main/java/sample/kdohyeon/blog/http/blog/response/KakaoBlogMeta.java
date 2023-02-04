@@ -1,5 +1,6 @@
 package sample.kdohyeon.blog.http.blog.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 
@@ -7,13 +8,13 @@ import java.beans.ConstructorProperties;
 
 @Getter
 public class KakaoBlogMeta {
-    @SerializedName("total_count")
+    @JsonProperty("total_count")
     private final Long totalCount;
 
-    @SerializedName("pageable_count")
+    @JsonProperty("pageable_count")
     private final int pageableCount;
 
-    @SerializedName("is_end")
+    @JsonProperty("is_end")
     private final boolean isEnd;
 
     @ConstructorProperties({"totalCount", "pageableCount", "isEnd"})

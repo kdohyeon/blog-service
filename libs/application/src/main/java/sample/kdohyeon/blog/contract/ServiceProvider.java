@@ -1,4 +1,4 @@
-package sample.kdohyeon.blog.http.contract;
+package sample.kdohyeon.blog.contract;
 
 public enum ServiceProvider {
     KAKAO

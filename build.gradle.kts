@@ -50,6 +50,7 @@ configureByLabels("java") {
             dependency("com.google.code.gson:gson:${Versions.gson}")
             dependency("org.mapstruct:mapstruct:${Versions.mapstruct}")
             dependency("org.mapstruct:mapstruct-processor:${Versions.mapstruct}")
+            dependency("com.fasterxml.jackson.core:jackson-databind:${Versions.jacksonCore}")
         }
     }
 

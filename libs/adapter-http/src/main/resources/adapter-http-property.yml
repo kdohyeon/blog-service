@@ -1,0 +1,5 @@
+kakao-open-api:
+  auth:
+    rest-api-key: 40502fb73f05adc26d388ada0ca719c3
+  base-url: https://dapi.kakao.com
+  search-blogs: /v2/search/blog

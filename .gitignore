@@ -9,3 +9,5 @@ out/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+.jqwik-database

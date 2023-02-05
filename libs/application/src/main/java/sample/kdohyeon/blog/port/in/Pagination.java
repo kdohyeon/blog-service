@@ -1,5 +1,6 @@
 package sample.kdohyeon.blog.port.in;
 
+import lombok.Builder;
 import lombok.Getter;
 import org.apache.commons.lang3.ObjectUtils;
 
@@ -13,6 +14,7 @@ public class Pagination {
     private boolean hasNextPage;
     private Integer nextPage;
 
+    @Builder
     public Pagination(Integer currentPage,
                       Integer totalPage,
                       Long totalItemCount,
@@ -27,5 +29,10 @@ public class Pagination {
             this.hasNextPage = currentPage < totalPage;
             this.nextPage = currentPage + 1;
         }
+    }
+
+    public static Pagination empty() {
+        return Pagination.builder()
+                .build();
     }
 }

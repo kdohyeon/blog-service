@@ -14,4 +14,8 @@ object Versions {
     const val mapstruct = "1.5.3.Final"
     const val jacksonCore = "2.13.3"
     const val querydsl = "5.0.0"
+
+    const val junit = "5.8.1"
+    const val assertjCore = "3.6.1"
+    const val mockitoCore = "5.1.1"
 }

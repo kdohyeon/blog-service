@@ -41,9 +41,8 @@ public class BlogSearchService implements SearchBlogUseCase {
                 .pageable(command.getPageable())
                 .restApiType(RestApiType.KAKAO_SEARCH_BLOGS)
                 .build();
+        var blog = blogPort.searchBlogDocuments(clause);
 
-        var result = blogPort.searchBlogs(clause);
-
-        return blogDtoConverter.convert(result);
+        return blogDtoConverter.convert(blog);
     }
 }

@@ -34,7 +34,7 @@ public class KakaoBlogHttpClient implements BlogPort {
     }
 
     @Override
-    public Blog searchBlogs(BlogSearchClause clause) {
+    public Blog searchBlogDocuments(BlogSearchClause clause) {
         var restApiType = clause.getRestApiType();
         var restTemplateBuilder = restTemplateBuilders.stream()
                 .filter(each -> each.isTarget(restApiType))

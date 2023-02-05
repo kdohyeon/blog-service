@@ -65,6 +65,12 @@ configureByLabels("java") {
             dependency("com.querydsl:querydsl-core:${Versions.querydsl}")
             dependency("com.querydsl:querydsl-jpa:${Versions.querydsl}")
             dependency("com.querydsl:querydsl-apt:${Versions.querydsl}")
+
+            dependency("org.junit.jupiter:junit-jupiter-api:${Versions.junit}")
+            dependency("org.junit.jupiter:junit-jupiter-params:${Versions.junit}")
+            dependency("org.junit.jupiter:junit-jupiter-engine:${Versions.junit}")
+            dependency("org.assertj:assertj-core:${Versions.assertjCore}")
+            dependency("org.mockito:mockito-junit-jupiter:${Versions.mockitoCore}")
         }
     }
 
@@ -81,6 +87,8 @@ configureByLabels("java") {
     dependencies {
         val implementation by configurations
         val annotationProcessor by configurations
+        val testImplementation by configurations
+        val testRuntimeOnly by configurations
 
         implementation("com.google.guava:guava")
 
@@ -90,6 +98,15 @@ configureByLabels("java") {
         implementation("org.mapstruct:mapstruct")
 
         annotationProcessor("org.mapstruct:mapstruct-processor")
+
+        testImplementation("org.junit.jupiter:junit-jupiter-api")
+        testImplementation("org.assertj:assertj-core")
+        testImplementation("org.junit.jupiter:junit-jupiter-params")
+        testImplementation("org.mockito:mockito-core")
+        testImplementation("org.mockito:mockito-junit-jupiter")
+        testImplementation("com.navercorp.fixturemonkey:fixture-monkey-starter")
+
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     }
 }
 

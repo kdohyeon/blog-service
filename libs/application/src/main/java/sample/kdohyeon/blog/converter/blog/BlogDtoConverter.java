@@ -4,6 +4,8 @@ import org.springframework.stereotype.Component;
 import sample.kdohyeon.blog.domain.document.Blog;
 import sample.kdohyeon.blog.port.in.blog.response.BlogDto;
 
+import java.util.Objects;
+
 @Component
 public class BlogDtoConverter {
 
@@ -15,6 +17,10 @@ public class BlogDtoConverter {
 
 
     public BlogDto convert(Blog source) {
+        if (Objects.isNull(source)) {
+            return BlogDto.empty();
+        }
+
         var documents = source.getBlogDocuments();
         var pagination = source.getPagination();
         return BlogDto.builder()

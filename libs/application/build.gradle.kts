@@ -14,4 +14,7 @@ dependencies {
     implementation("com.querydsl:querydsl-core")
     annotationProcessor(group = "com.querydsl", name = "querydsl-apt", classifier = "jpa")
     annotationProcessor("jakarta.persistence:jakarta.persistence-api")
+
+    // test
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

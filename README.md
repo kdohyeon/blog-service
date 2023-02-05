@@ -64,3 +64,15 @@
 - 공정한 평가를 위해 제출 마감 시한 이후 변경을 금지한다.
 - 깃헙에서 프로젝트 생성시 카카오뱅크 지원을 위한 과제 프로젝트인 것이 드러나지 않도록 kakaobank 등의 유추 가능한 프로젝트명을 사용하지 않도록 주의
 - 지인들이 깃헙을 통해 지원 사실을 알 수도 있으므로 원하지 않으면 새로운 깃헙 계정을 생성하시는 것을 추천
+
+# 실행하기
+## 빌드 파일 만들기 (Executable Jar 만들기)
+```
+./gradlew clean :apps:app-api:build
+```
+
+## Executable Jar 실행하기
+- ./apps/app-api/build/libs/ 디렉토리로 접근
+```
+java -jar {jar_name}.jar
+```

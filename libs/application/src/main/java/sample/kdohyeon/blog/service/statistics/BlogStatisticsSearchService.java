@@ -27,9 +27,7 @@ public class BlogStatisticsSearchService implements SearchBlogStatisticsUseCase 
 
     @Override
     public List<BlogStatisticsDto> search(SearchBlogStatisticsCommand command) {
-        var stats = readTransactionOperations.execute(status -> {
-            return blogStatisticsPort.findTopNByCount(command.getTop());
-        });
+        var stats = readTransactionOperations.execute(status -> blogStatisticsPort.findTopNByOrderByCountDesc(command.getTop()));
 
         return blogStatisticsDtoConverter.convert(stats);
     }

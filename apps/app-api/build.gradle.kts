@@ -13,4 +13,5 @@ dependencies {
 val appMainClassName = "sample.kdohyeon.blog.BlogApiApplication"
 tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
     mainClass.set(appMainClassName)
+    archiveClassifier.set("boot")
 }

@@ -1,6 +1,7 @@
 import com.linecorp.support.project.multi.recipe.configureByLabels
 
 plugins {
+    java
     id("io.spring.dependency-management") version Versions.springDependencyManagementPlugin apply false
     id("org.springframework.boot") version Versions.springBoot apply false
     id("io.freefair.lombok") version Versions.lombokPlugin apply false
@@ -35,6 +36,15 @@ configureByLabels("java") {
     apply(plugin = "org.gradle.java")
     apply(plugin = "io.spring.dependency-management")
     apply(plugin = "io.freefair.lombok")
+
+    configure<JavaPluginExtension> {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 
     the<io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension>().apply {
         imports {
@@ -91,6 +101,15 @@ configureByLabels("boot") {
     }
 
     tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+        enabled = true
+        archiveClassifier.set("boot")
+    }
+}
+
+configureByLabels("library") {
+    apply(plugin = "java-library")
+
+    tasks.getByName<Jar>("jar") {
         enabled = true
     }
 }

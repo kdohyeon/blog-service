@@ -10,11 +10,10 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "blog_statistics")
 public class BlogStatistic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "blog_statistic_id")
+    @Column
     private Long id;
 
     @Column(nullable = false)

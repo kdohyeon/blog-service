@@ -1,4 +1,4 @@
-package sample.kdohyeon.blog.domain.blog;
+package sample.kdohyeon.blog.domain.document;
 
 import lombok.Builder;
 import lombok.Getter;

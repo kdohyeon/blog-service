@@ -1,7 +1,7 @@
 package sample.kdohyeon.blog.converter.blog;
 
 import org.springframework.stereotype.Component;
-import sample.kdohyeon.blog.domain.blog.Blog;
+import sample.kdohyeon.blog.domain.document.Blog;
 import sample.kdohyeon.blog.port.in.blog.response.BlogDto;
 
 @Component

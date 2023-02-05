@@ -1,5 +1,6 @@
 package sample.kdohyeon.blog.port.in.blog.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -12,6 +13,8 @@ public class BlogDocumentDto {
     private final String url;
     private final String blogName;
     private final String thumbnail;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private final ZonedDateTime writtenAt;
 
     @Builder

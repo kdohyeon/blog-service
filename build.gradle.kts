@@ -41,6 +41,7 @@ configureByLabels("java") {
             mavenBom("org.springframework.boot:spring-boot-dependencies:${Versions.springBoot}")
             mavenBom("org.jetbrains.kotlin:kotlin-bom:${Versions.kotlin}")
             mavenBom("com.google.guava:guava-bom:${Versions.guava}")
+            mavenBom("com.querydsl:querydsl-bom:${Versions.querydsl}")
         }
 
         dependencies {
@@ -51,6 +52,9 @@ configureByLabels("java") {
             dependency("org.mapstruct:mapstruct:${Versions.mapstruct}")
             dependency("org.mapstruct:mapstruct-processor:${Versions.mapstruct}")
             dependency("com.fasterxml.jackson.core:jackson-databind:${Versions.jacksonCore}")
+            dependency("com.querydsl:querydsl-core:${Versions.querydsl}")
+            dependency("com.querydsl:querydsl-jpa:${Versions.querydsl}")
+            dependency("com.querydsl:querydsl-apt:${Versions.querydsl}")
         }
     }
 

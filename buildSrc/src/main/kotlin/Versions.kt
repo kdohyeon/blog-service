@@ -13,4 +13,5 @@ object Versions {
     const val gson = "2.10.1"
     const val mapstruct = "1.5.3.Final"
     const val jacksonCore = "2.13.3"
+    const val querydsl = "5.0.0"
 }

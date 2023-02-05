@@ -2,8 +2,8 @@ package sample.kdohyeon.blog.http.blog.converter;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
-import sample.kdohyeon.blog.domain.blog.Blog;
-import sample.kdohyeon.blog.domain.blog.BlogDocument;
+import sample.kdohyeon.blog.domain.document.Blog;
+import sample.kdohyeon.blog.domain.document.BlogDocument;
 import sample.kdohyeon.blog.http.blog.response.KakaoBlogResponse;
 import sample.kdohyeon.blog.port.in.Pagination;
 

@@ -1,7 +1,6 @@
 package sample.kdohyeon.blog.service.blog;
 
 import org.springframework.stereotype.Service;
-import sample.kdohyeon.blog.contract.RestApiType;
 import sample.kdohyeon.blog.converter.blog.BlogDtoConverter;
 import sample.kdohyeon.blog.port.in.blog.SearchBlogUseCase;
 import sample.kdohyeon.blog.port.in.blog.command.BlogSearchCommand;
@@ -38,8 +37,8 @@ public class BlogSearchService implements SearchBlogUseCase {
                 .keyword(command.getKeyword())
                 .sort(command.getSort())
                 .url(command.getUrl())
-                .pageable(command.getPageable())
-                .restApiType(RestApiType.KAKAO_SEARCH_BLOGS)
+                .page(command.getPage())
+                .size(command.getSize())
                 .build();
         var blog = blogPort.searchBlogDocuments(clause);
 

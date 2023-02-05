@@ -1,6 +1,5 @@
 package sample.kdohyeon.blog.controller.blog;
 
-import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,12 +26,12 @@ public class BlogSearchController {
             @RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "10") int size
     ) {
-        var pageable = PageRequest.of(page, size);
         var command = BlogSearchCommand.builder()
                 .keyword(requestBody.getKeyword())
                 .url(requestBody.getUrl())
                 .sort(requestBody.getSort())
-                .pageable(pageable)
+                .page(page) // db 조회였다면 pageable 를 사용했을텐데 외부 API 호출이라 굳이 사용하지 않음
+                .size(size)
                 .build();
 
         return ResultResponse.ok(searchBlogUseCase.search(command));

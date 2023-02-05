@@ -62,13 +62,12 @@ public class KakaoBlogSearchBuilder implements RestTemplateBuilder {
         var searchClause = (BlogSearchClause) clause;
         var restApiType = searchClause.getRestApiType();
 
-        var pageable = searchClause.getPageable();
         return UriComponentsBuilder.fromUriString(baseUrl)
                 .path(restApiType.getUri())
                 .queryParam(QUERY, buildQuery(searchClause))
                 .queryParam(SORT, buildSort(searchClause))
-                .queryParam(PAGE, pageable.getPageNumber())
-                .queryParam(SIZE, pageable.getPageSize())
+                .queryParam(PAGE, searchClause.getPage())
+                .queryParam(SIZE, searchClause.getSize())
                 .build()
                 .toUriString();
     }

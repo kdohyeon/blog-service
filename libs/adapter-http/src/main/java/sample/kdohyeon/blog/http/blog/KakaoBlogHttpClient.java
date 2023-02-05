@@ -48,6 +48,6 @@ public class KakaoBlogHttpClient implements BlogPort {
         );
 
         KakaoBlogResponse kakaoBlogResponse = objectMapperUtil.readValue(response, KakaoBlogResponse.class);
-        return blogConverter.converter(kakaoBlogResponse, clause.getPageable());
+        return blogConverter.converter(kakaoBlogResponse, clause.getPage(), clause.getSize());
     }
 }

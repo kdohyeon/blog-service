@@ -1,6 +1,5 @@
 package sample.kdohyeon.blog.http.blog.converter;
 
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import sample.kdohyeon.blog.domain.document.Blog;
 import sample.kdohyeon.blog.domain.document.BlogDocument;
@@ -9,7 +8,7 @@ import sample.kdohyeon.blog.port.in.Pagination;
 
 @Component
 public class BlogConverter {
-    public Blog converter(KakaoBlogResponse source, Pageable pageable) {
+    public Blog converter(KakaoBlogResponse source, int page, int size) {
         var documents = source.getDocuments();
         var meta = source.getMeta();
 
@@ -28,10 +27,10 @@ public class BlogConverter {
                 )
                 .pagination(
                         new Pagination(
-                                pageable.getPageNumber(),
+                                page,
                                 meta.getPageableCount(),
                                 meta.getTotalCount(),
-                                pageable.getPageSize()
+                                size
                         )
                 )
                 .build();

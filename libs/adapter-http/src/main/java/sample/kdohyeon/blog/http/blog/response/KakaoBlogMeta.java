@@ -1,7 +1,6 @@
 package sample.kdohyeon.blog.http.blog.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 
 import java.beans.ConstructorProperties;

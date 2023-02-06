@@ -8,6 +8,13 @@ dependencies {
 
     runtimeOnly(project(":libs:adapter-http")) // to get adapter-http-property.yml
     runtimeOnly(project(":libs:adapter-persistence")) // to get adapter-persistence-property.yml
+
+    integrationImplementation("org.springframework.boot:spring-boot-starter-test")
+    integrationImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+    integrationImplementation("io.rest-assured:spring-mock-mvc")
+    integrationRuntimeOnly("com.h2database:h2")
+
+    integrationImplementation("com.epages:restdocs-api-spec-mockmvc")
 }
 
 val appMainClassName = "sample.kdohyeon.blog.BlogApiApplication"

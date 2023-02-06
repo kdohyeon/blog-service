@@ -6,6 +6,8 @@ plugins {
     id("org.springframework.boot") version Versions.springBoot apply false
     id("io.freefair.lombok") version Versions.lombokPlugin apply false
     id("com.coditory.integration-test") version Versions.integrationTestPlugin apply false
+    id("com.epages.restdocs-api-spec") version Versions.restdocsApiSpec apply false
+    id("org.asciidoctor.jvm.convert") version Versions.asciidoctorPlugin apply false
     id("com.linecorp.build-recipe-plugin") version Versions.lineRecipePlugin
 
     kotlin("jvm") version Versions.kotlin apply false
@@ -60,7 +62,6 @@ configureByLabels("java") {
             dependency("org.apache.commons:commons-lang3:${Versions.apacheCommonsLang}")
             dependency("org.apache.commons:commons-collections4:${Versions.apacheCommonsCollections}")
             dependency("com.navercorp.fixturemonkey:fixture-monkey-starter:${Versions.fixtureMonkey}")
-            dependency("com.google.code.gson:gson:${Versions.gson}")
             dependency("org.mapstruct:mapstruct:${Versions.mapstruct}")
             dependency("org.mapstruct:mapstruct-processor:${Versions.mapstruct}")
             dependency("com.fasterxml.jackson.core:jackson-databind:${Versions.jacksonCore}")
@@ -73,6 +74,10 @@ configureByLabels("java") {
             dependency("org.junit.jupiter:junit-jupiter-engine:${Versions.junit}")
             dependency("org.assertj:assertj-core:${Versions.assertjCore}")
             dependency("org.mockito:mockito-junit-jupiter:${Versions.mockitoCore}")
+
+            dependency("com.epages:restdocs-api-spec:${Versions.restdocsApiSpec}")
+            dependency("com.epages:restdocs-api-spec-mockmvc:${Versions.restdocsApiSpec}")
+            dependency("com.epages:restdocs-api-spec-restassured:${Versions.restdocsApiSpec}")
         }
     }
 
@@ -100,7 +105,6 @@ configureByLabels("java") {
 
         implementation("org.apache.commons:commons-lang3")
         implementation("org.apache.commons:commons-collections4")
-        implementation("com.google.code.gson:gson")
         implementation("org.mapstruct:mapstruct")
 
         annotationProcessor("org.mapstruct:mapstruct-processor")
@@ -139,4 +143,22 @@ configureByLabels("library") {
     tasks.getByName<Jar>("jar") {
         enabled = true
     }
+}
+
+configureByLabels("asciidoctor") {
+    apply(plugin = "org.asciidoctor.jvm.convert")
+
+    tasks.named<org.asciidoctor.gradle.jvm.AsciidoctorTask>("asciidoctor") {
+        sourceDir(file("src/docs"))
+        outputs.dir(file("build/docs"))
+        attributes(
+            mapOf(
+                "snippets" to file("build/generated-snippets")
+            )
+        )
+    }
+}
+
+configureByLabels("restdocs") {
+    apply(plugin = "com.epages.restdocs-api-spec")
 }

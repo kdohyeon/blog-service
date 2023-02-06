@@ -9,7 +9,7 @@ import sample.kdohyeon.blog.http.builder.RestTemplateBuilder;
 import sample.kdohyeon.blog.http.client.HttpClient;
 import sample.kdohyeon.blog.port.out.blog.BlogPort;
 import sample.kdohyeon.blog.port.out.blog.clause.BlogSearchClause;
-import sample.kdohyeon.blog.util.ObjectMapperUtil;
+import sample.kdohyeon.blog.http.util.ObjectMapperUtil;
 
 import java.util.List;
 

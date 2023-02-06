@@ -1,4 +1,4 @@
-package sample.kdohyeon.blog.http.config;
+package sample.kdohyeon.blog.http.configure;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;

@@ -15,6 +15,9 @@ dependencies {
     integrationRuntimeOnly("com.h2database:h2")
 
     integrationImplementation("com.epages:restdocs-api-spec-mockmvc")
+
+    // test
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 val appMainClassName = "sample.kdohyeon.blog.BlogApiApplication"

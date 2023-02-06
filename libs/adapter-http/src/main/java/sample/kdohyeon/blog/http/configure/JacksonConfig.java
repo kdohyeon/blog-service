@@ -1,4 +1,4 @@
-package sample.kdohyeon.blog.configure;
+package sample.kdohyeon.blog.http.configure;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

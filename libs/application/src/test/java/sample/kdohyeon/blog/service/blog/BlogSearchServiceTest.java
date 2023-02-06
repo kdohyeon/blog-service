@@ -62,7 +62,7 @@ class BlogSearchServiceTest {
 
         // then
         verify(upsertBlogStatisticsUseCase, times(1))
-                .upsert(any(UpsertBlogStatisticsCommand.class));
+                .increaseCountOrCreate(any(UpsertBlogStatisticsCommand.class));
     }
 
     @DisplayName("키워드로 블로그를 조회할 수 있다.")

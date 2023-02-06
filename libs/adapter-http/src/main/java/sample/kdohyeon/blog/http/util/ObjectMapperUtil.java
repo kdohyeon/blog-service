@@ -1,4 +1,4 @@
-package sample.kdohyeon.blog.util;
+package sample.kdohyeon.blog.http.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

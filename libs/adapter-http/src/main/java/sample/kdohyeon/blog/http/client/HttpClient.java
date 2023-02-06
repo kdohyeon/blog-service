@@ -18,7 +18,8 @@ public class HttpClient {
 
     public String request(String uri, HttpMethod httpMethod, HttpHeaders headers) {
         return restTemplate.exchange(
-                uri, httpMethod,
+                uri,
+                httpMethod,
                 new HttpEntity<>(headers),
                 new ParameterizedTypeReference<String>() {
                 }

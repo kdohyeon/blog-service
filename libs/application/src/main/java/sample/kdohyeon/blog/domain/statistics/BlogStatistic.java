@@ -29,7 +29,7 @@ public class BlogStatistic {
         this.count = count;
     }
 
-    public void count() {
+    public void increaseCount() {
         this.count++;
     }
 

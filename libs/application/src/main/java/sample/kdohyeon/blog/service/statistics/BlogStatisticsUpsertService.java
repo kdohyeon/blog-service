@@ -21,22 +21,25 @@ public class BlogStatisticsUpsertService implements UpsertBlogStatisticsUseCase 
     }
 
     @Override
-    public void upsert(UpsertBlogStatisticsCommand command) {
+    public void increaseCountOrCreate(UpsertBlogStatisticsCommand command) {
         writeTransactionOperations.executeWithoutResult(status -> {
             var statOptional = blogStatisticsPort.findByKeyword(
                     command.getKeyword()
             );
 
             statOptional.ifPresentOrElse(
-                    BlogStatistic::count,
-                    () ->
-                            blogStatisticsPort.save(
-                                    BlogStatistic.create(
-                                            CreateBlogStatistic.builder()
-                                                    .keyword(command.getKeyword())
-                                                    .build()
-                                    ))
+                    BlogStatistic::increaseCount,
+                    () -> createNewStat(command)
             );
         });
+    }
+
+    private void createNewStat(UpsertBlogStatisticsCommand command) {
+        blogStatisticsPort.save(
+                BlogStatistic.create(
+                        CreateBlogStatistic.builder()
+                                .keyword(command.getKeyword())
+                                .build()
+                ));
     }
 }

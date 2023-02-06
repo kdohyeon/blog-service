@@ -28,7 +28,7 @@ public class BlogSearchService implements SearchBlogUseCase {
     @Override
     public BlogDto search(BlogSearchCommand command) {
         // 검색어에 대한 통계 반영
-        upsertBlogStatisticsUseCase.upsert(UpsertBlogStatisticsCommand.builder()
+        upsertBlogStatisticsUseCase.increaseCountOrCreate(UpsertBlogStatisticsCommand.builder()
                 .keyword(command.getKeyword())
                 .build());
 

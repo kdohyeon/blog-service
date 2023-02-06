@@ -3,7 +3,7 @@ object Versions {
     const val lombokPlugin = "6.6.1"
     const val springBoot = "2.7.3"
     const val integrationTestPlugin = "1.4.5"
-    const val restdocsApiSpec = "0.17.1"
+    const val restdocsApiSpec = "0.16.2"
     const val asciidoctorPlugin = "3.3.2"
     const val lineRecipePlugin = "1.1.1"
 

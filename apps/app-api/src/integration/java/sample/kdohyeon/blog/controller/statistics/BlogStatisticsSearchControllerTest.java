@@ -2,7 +2,6 @@ package sample.kdohyeon.blog.controller.statistics;
 
 import com.navercorp.fixturemonkey.FixtureMonkey;
 import com.navercorp.fixturemonkey.generator.BuilderArbitraryGenerator;
-import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,11 +12,6 @@ import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import sample.kdohyeon.blog.BlogApiTest;
-import sample.kdohyeon.blog.controller.blog.BlogSearchController;
-import sample.kdohyeon.blog.port.in.Pagination;
-import sample.kdohyeon.blog.port.in.blog.SearchBlogUseCase;
-import sample.kdohyeon.blog.port.in.blog.response.BlogDocumentDto;
-import sample.kdohyeon.blog.port.in.blog.response.BlogDto;
 import sample.kdohyeon.blog.port.in.statistics.SearchBlogStatisticsUseCase;
 import sample.kdohyeon.blog.port.in.statistics.response.BlogStatisticsDto;
 
@@ -37,7 +31,7 @@ import static org.springframework.restdocs.request.RequestDocumentation.paramete
 import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
 
 @ExtendWith(MockitoExtension.class)
-public class BlogSearchSearchControllerTest extends BlogApiTest {
+public class BlogStatisticsSearchControllerTest extends BlogApiTest {
     @Mock
     private SearchBlogStatisticsUseCase searchBlogStatisticsUseCase;
 
@@ -53,7 +47,7 @@ public class BlogSearchSearchControllerTest extends BlogApiTest {
     }
 
     @Test
-    void searchBlogs() {
+    void searchPopularSearchKeyword() {
         when(searchBlogStatisticsUseCase.search(any()))
                 .thenReturn(getMockBlogStatistics());
 

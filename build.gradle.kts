@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version Versions.springDependencyManagementPlugin apply false
     id("org.springframework.boot") version Versions.springBoot apply false
     id("io.freefair.lombok") version Versions.lombokPlugin apply false
+    id("com.coditory.integration-test") version Versions.integrationTestPlugin apply false
     id("com.linecorp.build-recipe-plugin") version Versions.lineRecipePlugin
 
     kotlin("jvm") version Versions.kotlin apply false
@@ -36,6 +37,7 @@ configureByLabels("java") {
     apply(plugin = "org.gradle.java")
     apply(plugin = "io.spring.dependency-management")
     apply(plugin = "io.freefair.lombok")
+    apply(plugin = "com.coditory.integration-test")
 
     configure<JavaPluginExtension> {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -87,8 +89,12 @@ configureByLabels("java") {
     dependencies {
         val implementation by configurations
         val annotationProcessor by configurations
+
         val testImplementation by configurations
         val testRuntimeOnly by configurations
+
+        val integrationImplementation by configurations
+        val integrationRuntimeOnly by configurations
 
         implementation("com.google.guava:guava")
 
@@ -105,8 +111,12 @@ configureByLabels("java") {
         testImplementation("org.mockito:mockito-core")
         testImplementation("org.mockito:mockito-junit-jupiter")
         testImplementation("com.navercorp.fixturemonkey:fixture-monkey-starter")
-
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+
+        integrationImplementation("org.junit.jupiter:junit-jupiter-api")
+        integrationImplementation("org.junit.jupiter:junit-jupiter-params")
+        integrationImplementation("org.assertj:assertj-core")
+        integrationRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     }
 }
 

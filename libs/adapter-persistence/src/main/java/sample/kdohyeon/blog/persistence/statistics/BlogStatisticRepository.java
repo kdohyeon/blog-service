@@ -1,13 +1,13 @@
 package sample.kdohyeon.blog.persistence.statistics;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 import sample.kdohyeon.blog.domain.statistics.BlogStatistic;
 import sample.kdohyeon.blog.port.out.statistics.BlogStatisticsPort;
 
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+@Component
 public class BlogStatisticRepository implements BlogStatisticsPort {
 
     private final BlogStatisticJpaRepository blogStatisticJpaRepository;

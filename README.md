@@ -35,7 +35,8 @@ root
 # 모듈 설계
 
 - 멀티 모듈로 구성되어 있습니다.
-- 모듈 간 의존성은 각 모듈의 `build.gradle` 에서 관리되고 있으며 효율적으로 관리하기 위해 Line 에서 제공하는 [build-recipe-plugins](https://github.com/line/gradle-multi-project-support) 를 활용합니다. 
+- 모듈 간 의존성은 각 모듈의 `build.gradle.kts` 에서 관리되고 있으며 효율적으로 관리하기 위해 Line 에서
+  제공하는 [build-recipe-plugins](https://github.com/line/gradle-multi-project-support) 를 활용합니다.
 - Clean Architecture 에 기반한 모듈 설계와 패키지 의존 구조를 가지고 있습니다.
 
 ![module structure](assets/module_structure.png)
@@ -44,8 +45,8 @@ root
 - 도메인 엔티티, 입력 포트, 출력 포트, 그리고 서비스 로직이 포함되어 있습니다.
   - `domain`
   - `service`
-  - `port/in`
-  - `port/out`
+  - `port/input`
+  - `port/output`
 
 ## module - adapter
 
@@ -63,21 +64,173 @@ root
 `/apps/app-api/src/docs/index.adoc` 을 참고합니다.
 
 ## 1. 블로그 검색
+
 - 키워드로 블로그를 검색할 수 있습니다.
 - 정확도순, 최신순으로 정렬할 수 있습니다.
 - 페이지네이션 기능을 제공합니다.
 - 검색 소스는 [카카오 블로그 검색 OPEN API](https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide) 를 활용합니다.
-- 카카오 API 가 제대로 작동이 되지 않으면 [네이버 블로그 검색 OPEN API](https://developers.naver.com/docs/serviceapi/search/blog/blog.md) 로 대체합니다.
+- 카카오 API 가 제대로 작동이 되지 않으면 [네이버 블로그 검색 OPEN API](https://developers.naver.com/docs/serviceapi/search/blog/blog.md) 로
+  대체합니다.
 - RestTemplate 을 활용하여 HTTP 통신을 합니다.
 
+### 사용 방법
+
+```bash
+$ curl 'http://localhost:8080/api/v1/blogs?keyword=SpringFramework&page=1&size=10' -i -X GET \
+    -H 'Accept: application/json, application/javascript, text/javascript, text/json'
+
+$ http GET 'http://localhost:8080/api/v1/blogs?keyword=SpringFramework&page=1&size=10' \
+    'Accept:application/json, application/javascript, text/javascript, text/json'
+```
+
+### 요청
+
+```bash
+GET /api/v1/blogs?keyword=SpringFramework&page=1&size=10 HTTP/1.1
+Accept: application/json, application/javascript, text/javascript, text/json
+Host: localhost:8080
+```
+
+### 응답
+
+```json
+{
+  "success": true,
+  "code": "SUCCEED",
+  "message": null,
+  "data": {
+    "documents": [
+      {
+        "title": "Spring 이란",
+        "contents": "스프링 프레임워크 공부하기",
+        "url": "www.google.com",
+        "blogName": "기억보단 기록을",
+        "thumbnail": "",
+        "writtenAt": "2022-02-07 22:36:02"
+      },
+      {
+        "title": "면접에 합격하는 방법",
+        "contents": "코딩 테스트를 열심히 한다.",
+        "url": "www.daum.net",
+        "blogName": "허허",
+        "thumbnail": "abc.jpg",
+        "writtenAt": "2022-02-07 22:36:23"
+      },
+      ...
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPage": 32,
+      "totalItemCount": 314,
+      "countPerPage": 10,
+      "hasNextPage": true,
+      "nextPage": 2
+    }
+  }
+}
+```
+
+|Path|Type|Description|
+|---|---|---|
+|`+success+`|`+Boolean+`|성공 여부|
+|`+code+`|`+String+`|code|
+|`+message+`|`+String+`|message|
+|`+data+`|`+Object+`|데이터|
+|`+data.documents[]+`|`+Array+`|블로그 문서 목록|
+|`+data.documents[].title+`|`+String+`|블로그 제목|
+|`+data.documents[].contents+`|`+String+`|블로그 내용|
+|`+data.documents[].url+`|`+String+`|블로그 주소|
+|`+data.documents[].blogName+`|`+String+`|블로그 이름|
+|`+data.documents[].thumbnail+`|`+String+`|이미지 썸네일|
+|`+data.documents[].writtenAt+`|`+String+`|블로그 글 작성 시간|
+|`+data.pagination+`|`+Object+`|페이지네이션|
+
 ## 2. 인기 검색어 조회
+
 - 사용자들이 많이 검색한 순서대로, 검색한 키워드를 최대 10개까지 제공합니다.
 - 검색 키워드 별 검색된 횟수도 함께 표기됩니다.
 - DB 는 H2 데이터베이스를 활용합니다.
 - JPA, QueryDSL 을 활용하여 DB 컨트롤을 합니다.
 
+### 사용하기
+
+```bash
+$ curl 'http://localhost:8080/api/v1/blogs/statistics/popular?top=10' -i -X GET
+
+$ http GET 'http://localhost:8080/api/v1/blogs/statistics/popular?top=10'
+```
+
+### 요청
+
+```
+GET /api/v1/blogs/statistics/popular?top=10 HTTP/1.1
+Host: localhost:8080
+```
+
+### 응답
+
+```json
+{
+  "success": true,
+  "code": "SUCCEED",
+  "message": null,
+  "data": [
+    {
+      "keyword": "qf\u001A\u001B\nm\t\u0002",
+      "count": 7255837471620
+    },
+    {
+      "keyword": "[\u0012Y\u0001\b$VA\u0005m\f4#t\u000B>\u0019V\u001Bm\tx1\u001C\u0000SH-:*@AJ\r#\\\u0013INN6\u0014Gl9\u0003\u0013Vw\u0007\u0000;\u00183w,!\u000B(=@\u001B9v?\u0010\u001D\r\u001DN1dGac\u0017Z\u00114)^%\u0013Xug\\\u0007\u0002@P1sxe\u0017%Z\u00182V\n$!\r[\r|\u000BDMg($_'n7\u001F\tOnKguy\u0004aEs\u0005 \u001DK\u0018i\u0003.wJCz4\u00169y\\\"cg*\u000Ev\"7W4[)AHza3U\u0010\fA",
+      "count": 2748057499
+    },
+    {
+      "keyword": "\u0007#{;\f#v&P| _\u000BYe\\x\u0016^h$Wvq\u0005\tE?9-B",
+      "count": 1250062143
+    },
+    {
+      "keyword": ".uHc Gn$\u0017f'u y]\u00141",
+      "count": 593340420
+    },
+    {
+      "keyword": "iw\u001D(S-\u0003e\u000Bm6\u000Ba\u0002WF\u0000s*\n!:\"\u001B",
+      "count": 2751956
+    },
+    {
+      "keyword": "\\D\u0005g\ra#2\u0012\t\u0014{bejniUe\u001DL2c4",
+      "count": 1227437
+    },
+    {
+      "keyword": "B$mf",
+      "count": 24530
+    },
+    {
+      "keyword": "e\u0010,\u0010",
+      "count": 1046
+    },
+    {
+      "keyword": "Bj~wy17",
+      "count": 105
+    },
+    {
+      "keyword": "|F.\u001F\u001B",
+      "count": 4
+    }
+  ]
+}
+```
+|Path|Type|Description|
+|---|---|---|
+|`+success+`|`+Boolean+`|성공 여부|
+|`+code+`|`+String+`|code|
+|`+message+`|`+String+`|message|
+|`+data[]+`|`+Array+`|인기 블로그 검색어 목록|
+|`+data[].keyword+`|`+String+`|인기 블로그 검색어|
+|`+data[].count+`|`+Number+`|검색어 별 검색된 횟수|
+
 # 실행하기
+
 ## 빌드 파일 만들기 (Executable Jar 만들기)
+
 ```
 ./gradlew clean :apps:app-api:build
 ```

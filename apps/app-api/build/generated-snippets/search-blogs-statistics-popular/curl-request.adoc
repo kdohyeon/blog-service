@@ -1,0 +1,4 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/api/v1/blogs/statistics/popular?top=10' -i -X GET
+----

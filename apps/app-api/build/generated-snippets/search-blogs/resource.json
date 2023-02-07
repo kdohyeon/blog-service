@@ -1,0 +1,152 @@
+{
+  "operationId" : "search-blogs",
+  "summary" : "블로그 조회 (페이징)",
+  "description" : "블로그 조회 (페이징)",
+  "privateResource" : false,
+  "deprecated" : false,
+  "request" : {
+    "path" : "/api/v1/blogs",
+    "method" : "GET",
+    "contentType" : null,
+    "schema" : null,
+    "headers" : [ ],
+    "pathParameters" : [ ],
+    "requestParameters" : [ {
+      "name" : "keyword",
+      "attributes" : { },
+      "description" : "블로그 검색 키워드",
+      "ignored" : false,
+      "type" : "STRING",
+      "optional" : false,
+      "default" : null
+    }, {
+      "name" : "url",
+      "attributes" : { },
+      "description" : "블로그 검색 주소",
+      "ignored" : false,
+      "type" : "STRING",
+      "optional" : true,
+      "default" : null
+    }, {
+      "name" : "sort",
+      "attributes" : { },
+      "description" : "정렬 기준 [정확도순: ACCURACY, 최신순: RECENCY]",
+      "ignored" : false,
+      "type" : "STRING",
+      "optional" : true,
+      "default" : null
+    }, {
+      "name" : "page",
+      "attributes" : { },
+      "description" : "전시 유무",
+      "ignored" : false,
+      "type" : "STRING",
+      "optional" : true,
+      "default" : null
+    }, {
+      "name" : "size",
+      "attributes" : { },
+      "description" : "페이지 번호",
+      "ignored" : false,
+      "type" : "STRING",
+      "optional" : true,
+      "default" : null
+    } ],
+    "requestFields" : [ ],
+    "example" : null,
+    "securityRequirements" : null
+  },
+  "response" : {
+    "status" : 200,
+    "contentType" : "application/json",
+    "schema" : null,
+    "headers" : [ ],
+    "responseFields" : [ {
+      "attributes" : { },
+      "description" : "성공 여부",
+      "ignored" : false,
+      "path" : "success",
+      "type" : "BOOLEAN",
+      "optional" : false
+    }, {
+      "attributes" : { },
+      "description" : "code",
+      "ignored" : false,
+      "path" : "code",
+      "type" : "STRING",
+      "optional" : false
+    }, {
+      "attributes" : { },
+      "description" : "message",
+      "ignored" : false,
+      "path" : "message",
+      "type" : "STRING",
+      "optional" : true
+    }, {
+      "attributes" : { },
+      "description" : "데이터",
+      "ignored" : false,
+      "path" : "data",
+      "type" : "OBJECT",
+      "optional" : false
+    }, {
+      "attributes" : { },
+      "description" : "블로그 문서 목록",
+      "ignored" : false,
+      "path" : "data.documents[]",
+      "type" : "ARRAY",
+      "optional" : false
+    }, {
+      "attributes" : { },
+      "description" : "블로그 제목",
+      "ignored" : false,
+      "path" : "data.documents[].title",
+      "type" : "STRING",
+      "optional" : false
+    }, {
+      "attributes" : { },
+      "description" : "블로그 내용",
+      "ignored" : false,
+      "path" : "data.documents[].contents",
+      "type" : "STRING",
+      "optional" : false
+    }, {
+      "attributes" : { },
+      "description" : "블로그 주소",
+      "ignored" : false,
+      "path" : "data.documents[].url",
+      "type" : "STRING",
+      "optional" : false
+    }, {
+      "attributes" : { },
+      "description" : "블로그 이름",
+      "ignored" : false,
+      "path" : "data.documents[].blogName",
+      "type" : "STRING",
+      "optional" : false
+    }, {
+      "attributes" : { },
+      "description" : "이미지 썸네일",
+      "ignored" : false,
+      "path" : "data.documents[].thumbnail",
+      "type" : "STRING",
+      "optional" : false
+    }, {
+      "attributes" : { },
+      "description" : "블로그 글 작성 시간",
+      "ignored" : false,
+      "path" : "data.documents[].writtenAt",
+      "type" : "STRING",
+      "optional" : false
+    }, {
+      "attributes" : { },
+      "description" : "페이지네이션",
+      "ignored" : false,
+      "path" : "data.pagination",
+      "type" : "OBJECT",
+      "optional" : false
+    } ],
+    "example" : "{\n  \"success\" : true,\n  \"code\" : \"SUCCEED\",\n  \"message\" : null,\n  \"data\" : {\n    \"documents\" : [ {\n      \"title\" : \"\\u001A6h3|g,\\\"n\\u0006>\",\n      \"contents\" : \"U 7T/ EmaS1?pnJ\\u0003\\u0003\\u0013\\u001Bi\\u00076$[p,16_q O.=\\u0005?dEe\\u0006&\\u0011m60\\u0005\\u0011\\u001E\\u0015\\\"40D>\\u0002\\u0007)|\\u0011@vi9G.6U\\r\\bZ\\n|\\u0015\\u0013\\u0000 V\\u001EH\\u0006J\\u0011s\\bcc+re\\u0004cM\\u001A.\\u0016{Q2Lr\\u0006\\u0019\\u0018\\u0005Ru/H\\nG\\f\\u001E,1GI-Lw1|mL5YI41>s`HAR\\u0019\\u000E.p>g\\u0001a~v{\\u0001RSD|z\\u0003\\u0018/q\\u0005KLAu,I\\u0016MFQ\\u0011nP\\u0004u\\u0005Y6@Z=\\u0003\\u001D\\u001D+4qwBureH\\u00172q\\u0004\\u001F\\u001A\\u0013::H#\",\n      \"url\" : \"Z\\u00137\\u0000\\u0016r,W)fc\\u001DK\\u0015w\\u0016Fa\\u0002B8\\u001EO77h]k\\b9\",\n      \"blogName\" : \"\\u000E{)\\u0006\\\"DzWE\\u001F>G}Tb\\n\",\n      \"thumbnail\" : \"\\rO\\u0003&\\u001ACG\\u0011\\u001F/\\u001AO\\fNL\\u0018iQa\",\n      \"writtenAt\" : \"2022-02-07 22:36:02\"\n    }, {\n      \"title\" : \"<dm\\u000E\\t{\\b\\u000B\\u0013/I\\u00192\\u0006Rx\\fw\",\n      \"contents\" : \"a}l()tCgO@HY\\u001F\\u0012^)PGA\\u00003}\\u0004u\\u001D(\\u0011Ki\\b\\u0005rI\\u0012\\f8Ij\\tbo(\\u000254BZMm\\fY\\t_OW\\u001D<^t]\\u001Dc'e|\\u0019]KS \\r \\u001BxM\\nE![\\f4\\u0013n)fcG\\u001E\\u00010}P& IF\\bfN\\u0015\\u0010lfqfD\\u0014B|)w&MTULY\\u0004EQyN}\\u001At\\u000B]<xTI5&;)\\u001Dr-\\u0014\\u0014\\u0003\\u001C\\u0004*/k[\",\n      \"url\" : \"P\\u0011\\u0018A9T/Tv9rU\\nG#\\u001EL:*ZU-\",\n      \"blogName\" : \"\\u001D[F]\\u00121-\\\".j`3UQ}\\u00021JrU0\\u001B\\f\",\n      \"thumbnail\" : \"!\\u0004N.\\u0000t\\u00040l,\\rB^WK[-pZ0\\u001A?O\",\n      \"writtenAt\" : \"2022-02-07 22:36:23\"\n    }, {\n      \"title\" : \"3=6st0MA#0\\\"&B!`\\u001F\\u0014\",\n      \"contents\" : \"`fJce\\u0011(\\u0016(KC4N\\r@'\",\n      \"url\" : \"Pde\\u000E\\n\\\\Mj/\\u0016a\\u0007Mvl\\u0014UF\\u0017\\\\\\n'yN1KC\",\n      \"blogName\" : \"7\",\n      \"thumbnail\" : \"\\u0014kM9\\u001B\\u0013\\r\\u0019A<g\\u0010\\u0017h- \\u0006:RO N\\u0012s:UC\\rJiA\\u0005bCBtu=\\u000E\\u0004f\\u000F9v\",\n      \"writtenAt\" : \"2022-02-07 22:34:51\"\n    }, {\n      \"title\" : \"..!l;S\\u0015Wv\",\n      \"contents\" : \"\\u0006\\u0018CGx\\u000B;/\\u001Cp\\u000E\\u0014D H\\u0013zN8\\u0012BdCrh8\",\n      \"url\" : \"o\\u0014pi&\",\n      \"blogName\" : \"I(\\tBdKx\\u00048jt\\u0012fk\\u000F7\\u0019@=U\",\n      \"thumbnail\" : \"p\\u001C@2~.\\u0014zs\\t;lF@UW\\u0007*sg!\\u0004xh\\u0006\\u001D\\u0016F\\u0005{\",\n      \"writtenAt\" : \"2022-02-07 22:34:51\"\n    }, {\n      \"title\" : \"AW\\u0006\\\"\\r3AR\\tk\\f=b\\f{u1\",\n      \"contents\" : \"*_7\\u0004v=qE^\\u0011y\",\n      \"url\" : \"4\\b{\\u0004+\\t;\\u000FQg#|brF\\u000FzB<l\\u001B\\u000E\\u0013\\r\\u0007\\u001AX\",\n      \"blogName\" : \"U;mBS\\u0005w_n2\\u0014jx\\u0000y0\\u0012\\u0014cL[v:s,a\\u00101o8-!!\\u0014;\\u0015UX{qOarl\\u0017\\u0007Y(GCZ\\u001CP_z{\\u0012\\u001F\\u0019\\u0019tr\\u0007\\u0000\\u00196\\u00043H2_5U\\u0015clc\\u00148Q\\u0010m/^:\\u0014\\u001F\\u0005'\\u000EP5]h|o*f20\\u00059M=Qby5\\\\CiS_z \\u0002~$\\u001CL\\u0013\\u0019O&p!S\\u0011\\u001FiQ\\u0000k!\\u00011\\t;\\u0004Bj\\u0001gl1a WtWd{<v\\u001E.D\\u0012A\\\"#CHK\\\\j=#J>\\u0010\\u0006WaWN\\u0016OpmH\\u000BJ\\u0006?g-O7f:e\\u0016\\n\\n^\\u00194mSn\\u0004R\\u001E>U_j5\\u0005;)2v\\fK\\r\\ntEI\",\n      \"thumbnail\" : \"\\u0015=3%tq\\u001BF\",\n      \"writtenAt\" : \"2022-08-03 15:36:31\"\n    }, {\n      \"title\" : \"=\\u0010h\\u0000L\\u0013M_Z:\",\n      \"contents\" : \"t\\u0012dJ1\\u001BA-JRb\\\\\\f\\u0014:\",\n      \"url\" : \"\\u0012E\\u0004\\u001CU&kUrN\\u0014^)a\\r#g0j\\u001FWF\\u001FVgE|ARf\",\n      \"blogName\" : \"\",\n      \"thumbnail\" : \"W\\u0016ios&Cg&Qi1[\\u001Ece%\\u000E\\u0011`os&\\u0001uo\\tbU5qw;hQ'\",\n      \"writtenAt\" : \"2022-02-07 22:34:51\"\n    }, {\n      \"title\" : \"t<b\\u0000<+\\u00012)gEUqHfAcA\\u0015\\u0016hM\\u0000D\\\\\\u001EV+\\u0003\\u0004\",\n      \"contents\" : \"p\\\"\\u001D\\tIe\\u00159$\\u000B2F\\u001Ej`qOV1'[\\u0005^\\u0014r@;\",\n      \"url\" : \"[I\\b\\u001C\\u0001\\u001C5\\u000B^\\u0012\\u0011xg\\n+F\",\n      \"blogName\" : \"S+\",\n      \"thumbnail\" : \"E`V\\u001D#\\u00116r\\\"V:[\",\n      \"writtenAt\" : \"2022-02-07 22:34:54\"\n    }, {\n      \"title\" : \"Y*\",\n      \"contents\" : \"]m[WA\\tphI\\u0006?Yi#\\u000F0d\\u0000JXw1|Mrr\\u0014\",\n      \"url\" : \"!$\\u001F'\\u0010? d\\rGh~\\u00004l\\u0017/E\\bq?\\u0017\\u000E\\u001FmEY]3\\nzK\\u0007\\u001B`/|upmD\\u000F|<\\u0005>%\\u0000l\\u0014tv\\b\\u0007%#Q\\u001B*\\u0012{SwEP65MLSG\\u0013`F\\u0003.\\u00079kW?'Y\\u001Cod\\\\uE\\u001CZ=Vz\\u000B5jED_\\u001D =\\\"H~\\u001E\\u000EuNX\\\\$4\\u0019&vZNs\\\\<r&\\u00033JBQq\\u00136\\u0015\\u0004\\tR\\u0002\\u001A{e\\r0KM\\u0013\\u0003\\u0005x$Hw n\\n\\u0011Jqh-=p9 n\\u0007a\\u001AI\\u0002j3g\\u001Af^kK*+N\\u001C\\u0015\\u0016\",\n      \"blogName\" : \"\\u0002/\\\"(b8\\u0013l\\u0007\\n\\u0007\\u0002\\u0001l{Y7\\n\\u000Et\\u000FLD!)\\u0001\\\\\\u00068>\\u0018s`cvO}v\\u001BZA8*k*o_ I0wZa\\u0001L;k'LXvKU\\u000Eb\\u001C\\f\\u0005(\\u0019[GD]>)\\u001F<N~\\u001C\\bJ9+>@,R-l\\u0017+\\u001A\\u0001\\b\\b^\\u0012P8.\\u001D-Q^\\u000717\\n;=v>~>:j_x\\u0019\\u0019>-W!\\u001C(!\\u000E_8\\u001B~\\u0004hDqv1@b\\ng]A\\u00160oix\\u0012j3lOT\\u0003a1!\\r\\u0018X\\rBuOi_&lyB=\\u0003=0m\\u0017hKmY\\u000F\\u0002\\u0011U\\u0016s3KI> j\\u001B\\u000F:L8\\u0012H&(\\u000Bz\\u0013\\u0016I\",\n      \"thumbnail\" : \"2Q\\u0005@j1\",\n      \"writtenAt\" : \"2022-02-07 22:34:51\"\n    }, {\n      \"title\" : \"B?\\u0002\\u001D\\u0012L\\u0017\\n1\\u0014j<O\\u0018\\u0004U@\\u001F\\u0000a'{R\\\\w0kUR\",\n      \"contents\" : \"\\u0004bhy\",\n      \"url\" : \"f\\u0001k\",\n      \"blogName\" : \"\\u0001(\\u0004{:'dE\\u0004v2Q?l\\\\&\\u00066'cwe>\",\n      \"thumbnail\" : \"nllw~oG\\u000B\",\n      \"writtenAt\" : \"2022-02-07 22:47:51\"\n    }, {\n      \"title\" : \"m\\u0000\\u0017+m[h:#af]\\u001BY\\u001B\\u0001t?]\\u0016_\\u0017c\",\n      \"contents\" : \"3\\u001E\\u0011\\u0012v.\\fw>e_wC1\\u0011B$?\\u0003-{b\\u0000\",\n      \"url\" : \"^0\\nW-rBkYu\\u0014\",\n      \"blogName\" : \"U<@#27PNFr&\\u0003@\\u0012K\\u0006\\u0001>d\\u0000weM\\u0007\\u0000_\\u001ET\\u0007Q|/L~ZBQ%6r{A\\u0005O\\u0004u\\u000B\\u0012h\\nrJ\\u0003{b\\u001Cj`?@:l\\u001AchL?w\\u0016\\\\+\\u0002H..+$\\u0004HT3yul\\u0007ts7Wf\",\n      \"thumbnail\" : \"s\\u0019BN|\\u0004xbM\\u0013Og\\u0015\\u001F<*prUs\\u0015S\\u000FI\",\n      \"writtenAt\" : \"2022-02-07 22:35:21\"\n    } ],\n    \"pagination\" : {\n      \"currentPage\" : null,\n      \"totalPage\" : null,\n      \"totalItemCount\" : null,\n      \"countPerPage\" : null,\n      \"hasNextPage\" : false,\n      \"nextPage\" : null\n    }\n  }\n}"
+  },
+  "tags" : [ "블로그" ]
+}

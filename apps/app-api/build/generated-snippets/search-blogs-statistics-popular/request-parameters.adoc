@@ -1,0 +1,7 @@
+|===
+|Parameter|Description
+
+|`+top+`
+|인기 블로그 검색어 상위 n 개 (기본: 10개)
+
+|===

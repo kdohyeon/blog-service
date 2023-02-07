@@ -1,0 +1,19 @@
+|===
+|Parameter|Description
+
+|`+keyword+`
+|블로그 검색 키워드
+
+|`+url+`
+|블로그 검색 주소
+
+|`+sort+`
+|정렬 기준 [정확도순: ACCURACY, 최신순: RECENCY]
+
+|`+page+`
+|전시 유무
+
+|`+size+`
+|페이지 번호
+
+|===

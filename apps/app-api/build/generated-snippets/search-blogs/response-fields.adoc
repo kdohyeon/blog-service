@@ -1,0 +1,52 @@
+|===
+|Path|Type|Description
+
+|`+success+`
+|`+Boolean+`
+|성공 여부
+
+|`+code+`
+|`+String+`
+|code
+
+|`+message+`
+|`+String+`
+|message
+
+|`+data+`
+|`+Object+`
+|데이터
+
+|`+data.documents[]+`
+|`+Array+`
+|블로그 문서 목록
+
+|`+data.documents[].title+`
+|`+String+`
+|블로그 제목
+
+|`+data.documents[].contents+`
+|`+String+`
+|블로그 내용
+
+|`+data.documents[].url+`
+|`+String+`
+|블로그 주소
+
+|`+data.documents[].blogName+`
+|`+String+`
+|블로그 이름
+
+|`+data.documents[].thumbnail+`
+|`+String+`
+|이미지 썸네일
+
+|`+data.documents[].writtenAt+`
+|`+String+`
+|블로그 글 작성 시간
+
+|`+data.pagination+`
+|`+Object+`
+|페이지네이션
+
+|===

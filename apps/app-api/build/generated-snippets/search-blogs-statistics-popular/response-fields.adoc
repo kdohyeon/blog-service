@@ -1,0 +1,28 @@
+|===
+|Path|Type|Description
+
+|`+success+`
+|`+Boolean+`
+|성공 여부
+
+|`+code+`
+|`+String+`
+|code
+
+|`+message+`
+|`+String+`
+|message
+
+|`+data[]+`
+|`+Array+`
+|인기 블로그 검색어 목록
+
+|`+data[].keyword+`
+|`+String+`
+|인기 블로그 검색어
+
+|`+data[].count+`
+|`+Number+`
+|검색어 별 검색된 횟수
+
+|===

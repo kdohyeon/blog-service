@@ -6,5 +6,6 @@ dependencies {
     implementation("org.springframework:spring-web") // RestTemplate
 
     testImplementation("org.junit.jupiter:junit-jupiter")
+
     integrationImplementation("org.springframework.boot:spring-boot-starter-test")
 }

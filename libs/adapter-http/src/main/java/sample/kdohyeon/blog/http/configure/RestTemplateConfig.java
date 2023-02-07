@@ -11,8 +11,8 @@ import java.time.temporal.ChronoUnit;
 @Configuration
 public class RestTemplateConfig {
     @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplateBuilder()
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder
                 .setConnectTimeout(Duration.of(1, ChronoUnit.SECONDS))
                 .setReadTimeout(Duration.of(5, ChronoUnit.SECONDS))
                 .build();

@@ -81,16 +81,6 @@ configureByLabels("java") {
         }
     }
 
-    repositories {
-        mavenCentral()
-        maven {
-            url = uri("https://maven.restlet.com")
-        }
-        maven {
-            url = uri("https://jitpack.io")
-        }
-    }
-
     dependencies {
         val implementation by configurations
         val annotationProcessor by configurations

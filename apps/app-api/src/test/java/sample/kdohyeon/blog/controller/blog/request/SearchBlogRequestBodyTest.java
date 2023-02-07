@@ -35,7 +35,7 @@ class SearchBlogRequestBodyTest {
         // given
         SearchBlogRequestBody request = new SearchBlogRequestBody(null, null, null);
 
-        // then
+        // when
         Set<ConstraintViolation<SearchBlogRequestBody>> violations = validator.validate(request);
 
         // then

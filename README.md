@@ -1,8 +1,9 @@
 # 소개. Blog Service
 
-- 블로그를 검색할 수 있는 서비스를 제공합니다.
+- 블로그 검색과 관련된 서비스를 제공합니다.
 
 # 빌드 결과물
+
 - [결과물 다운로드](https://github.com/kdohyeon/blog-service/blob/main/apps/app-api/build/libs/kakaobank.jar)
 
 # 환경 소개
@@ -58,7 +59,22 @@ root
 - `app/app-api`
 
 # API 명세
-- `/apps/app-api/src/docs/index.adoc` 을 참고합니다.
+
+`/apps/app-api/src/docs/index.adoc` 을 참고합니다.
+
+## 1. 블로그 검색
+- 키워드로 블로그를 검색할 수 있습니다.
+- 정확도순, 최신순으로 정렬할 수 있습니다.
+- 페이지네이션 기능을 제공합니다.
+- 검색 소스는 [카카오 블로그 검색 OPEN API](https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide) 를 활용합니다.
+- 카카오 API 가 제대로 작동이 되지 않으면 [네이버 블로그 검색 OPEN API](https://developers.naver.com/docs/serviceapi/search/blog/blog.md) 로 대체합니다.
+- RestTemplate 을 활용하여 HTTP 통신을 합니다.
+
+## 2. 인기 검색어 조회
+- 사용자들이 많이 검색한 순서대로, 검색한 키워드를 최대 10개까지 제공합니다.
+- 검색 키워드 별 검색된 횟수도 함께 표기됩니다.
+- DB 는 H2 데이터베이스를 활용합니다.
+- JPA, QueryDSL 을 활용하여 DB 컨트롤을 합니다.
 
 # 실행하기
 ## 빌드 파일 만들기 (Executable Jar 만들기)

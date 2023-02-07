@@ -113,3 +113,7 @@ java -jar {jar_name}.jar
 
 ### [org.asciidoctor.jvm.convert](https://asciidoctor.org/docs/asciidoctor-gradle-plugin/)
 - API 명세 문서 snippet 을 생성하기 위해 사용
+
+## 시스템 안정성
+### [resilience4j](https://resilience4j.readme.io/docs/circuitbreaker)
+- 카카오 API 에 장애가 발생한 경우, 네이버 API 를 조회하기 위해 사용 (서킷 브레이커)

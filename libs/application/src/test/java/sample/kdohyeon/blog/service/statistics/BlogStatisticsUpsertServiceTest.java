@@ -9,8 +9,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.transaction.support.TransactionOperations;
 import sample.kdohyeon.blog.domain.statistics.BlogStatistic;
-import sample.kdohyeon.blog.port.in.statistics.command.UpsertBlogStatisticsCommand;
-import sample.kdohyeon.blog.port.out.statistics.BlogStatisticsPort;
+import sample.kdohyeon.blog.port.input.statistics.command.UpsertBlogStatisticsCommand;
+import sample.kdohyeon.blog.port.output.statistics.BlogStatisticsPort;
 
 import java.util.Optional;
 

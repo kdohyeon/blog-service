@@ -3,9 +3,9 @@ package sample.kdohyeon.blog.controller.statistics;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import sample.kdohyeon.blog.port.in.statistics.SearchBlogStatisticsUseCase;
-import sample.kdohyeon.blog.port.in.statistics.command.SearchBlogStatisticsCommand;
-import sample.kdohyeon.blog.port.in.statistics.response.BlogStatisticsDto;
+import sample.kdohyeon.blog.port.input.statistics.SearchBlogStatisticsUseCase;
+import sample.kdohyeon.blog.port.input.statistics.command.SearchBlogStatisticsCommand;
+import sample.kdohyeon.blog.port.input.statistics.response.BlogStatisticsDto;
 import sample.kdohyeon.common.protocol.response.ResultResponse;
 
 import java.util.List;

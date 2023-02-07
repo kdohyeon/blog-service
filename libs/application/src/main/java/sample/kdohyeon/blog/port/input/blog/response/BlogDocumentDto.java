@@ -1,4 +1,4 @@
-package sample.kdohyeon.blog.port.in.blog.response;
+package sample.kdohyeon.blog.port.input.blog.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;

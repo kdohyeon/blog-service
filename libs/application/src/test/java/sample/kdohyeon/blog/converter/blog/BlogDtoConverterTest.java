@@ -10,7 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import sample.kdohyeon.blog.domain.document.Blog;
 import sample.kdohyeon.blog.domain.document.BlogDocument;
-import sample.kdohyeon.blog.port.in.Pagination;
+import sample.kdohyeon.blog.port.input.Pagination;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

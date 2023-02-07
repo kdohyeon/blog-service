@@ -2,7 +2,7 @@ package sample.kdohyeon.blog.persistence.statistics;
 
 import org.springframework.stereotype.Component;
 import sample.kdohyeon.blog.domain.statistics.BlogStatistic;
-import sample.kdohyeon.blog.port.out.statistics.BlogStatisticsPort;
+import sample.kdohyeon.blog.port.output.statistics.BlogStatisticsPort;
 
 import java.util.List;
 import java.util.Optional;

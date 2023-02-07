@@ -2,7 +2,7 @@ package sample.kdohyeon.blog.http.builder;
 
 import org.springframework.http.HttpHeaders;
 import sample.kdohyeon.blog.contract.RestApiType;
-import sample.kdohyeon.blog.port.out.Clause;
+import sample.kdohyeon.blog.port.output.Clause;
 
 public interface RestTemplateBuilder {
 

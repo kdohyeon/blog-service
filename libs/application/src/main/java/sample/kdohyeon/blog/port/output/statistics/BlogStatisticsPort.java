@@ -1,4 +1,4 @@
-package sample.kdohyeon.blog.port.out.statistics;
+package sample.kdohyeon.blog.port.output.statistics;
 
 import sample.kdohyeon.blog.domain.statistics.BlogStatistic;
 

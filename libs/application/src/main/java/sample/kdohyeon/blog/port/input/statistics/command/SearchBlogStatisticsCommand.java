@@ -1,4 +1,4 @@
-package sample.kdohyeon.blog.port.in.statistics.command;
+package sample.kdohyeon.blog.port.input.statistics.command;
 
 import lombok.Builder;
 import lombok.Getter;

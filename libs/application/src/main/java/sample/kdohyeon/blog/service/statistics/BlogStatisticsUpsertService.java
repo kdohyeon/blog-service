@@ -4,9 +4,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionOperations;
 import sample.kdohyeon.blog.domain.statistics.BlogStatistic;
 import sample.kdohyeon.blog.domain.statistics.CreateBlogStatistic;
-import sample.kdohyeon.blog.port.in.statistics.UpsertBlogStatisticsUseCase;
-import sample.kdohyeon.blog.port.in.statistics.command.UpsertBlogStatisticsCommand;
-import sample.kdohyeon.blog.port.out.statistics.BlogStatisticsPort;
+import sample.kdohyeon.blog.port.input.statistics.UpsertBlogStatisticsUseCase;
+import sample.kdohyeon.blog.port.input.statistics.command.UpsertBlogStatisticsCommand;
+import sample.kdohyeon.blog.port.output.statistics.BlogStatisticsPort;
 
 @Service
 public class BlogStatisticsUpsertService implements UpsertBlogStatisticsUseCase {

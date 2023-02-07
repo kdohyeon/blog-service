@@ -1,4 +1,4 @@
-package sample.kdohyeon.blog.port.in;
+package sample.kdohyeon.blog.port.input;
 
 import lombok.Builder;
 import lombok.Getter;

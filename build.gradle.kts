@@ -56,6 +56,7 @@ configureByLabels("java") {
             mavenBom("org.jetbrains.kotlin:kotlin-bom:${Versions.kotlin}")
             mavenBom("com.google.guava:guava-bom:${Versions.guava}")
             mavenBom("com.querydsl:querydsl-bom:${Versions.querydsl}")
+            mavenBom("org.springframework.cloud:spring-cloud-dependencies:${Versions.springCloud}")
         }
 
         dependencies {
@@ -96,6 +97,9 @@ configureByLabels("java") {
         implementation("org.apache.commons:commons-lang3")
         implementation("org.apache.commons:commons-collections4")
         implementation("org.mapstruct:mapstruct")
+        implementation("org.springframework.boot:spring-boot-starter-aop")
+        implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
+        implementation("io.github.resilience4j:resilience4j-spring-boot2")
 
         annotationProcessor("org.mapstruct:mapstruct-processor")
 

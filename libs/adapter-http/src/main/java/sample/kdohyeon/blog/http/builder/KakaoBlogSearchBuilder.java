@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
 import sample.kdohyeon.blog.contract.RestApiType;
 import sample.kdohyeon.blog.contract.blog.BlogSearchQuerySort;
-import sample.kdohyeon.blog.port.out.Clause;
-import sample.kdohyeon.blog.port.out.blog.clause.BlogSearchClause;
+import sample.kdohyeon.blog.port.output.Clause;
+import sample.kdohyeon.blog.port.output.blog.clause.KakaoBlogSearchClause;
 
 import java.util.Map;
 
@@ -38,7 +38,7 @@ public class KakaoBlogSearchBuilder implements RestTemplateBuilder {
         this.restApiKey = restApiKey;
     }
 
-    private String buildQuery(BlogSearchClause clause) {
+    private String buildQuery(KakaoBlogSearchClause clause) {
         if (StringUtils.isNotBlank(clause.getUrl())) {
             return String.join(
                     StringUtils.SPACE,
@@ -49,7 +49,7 @@ public class KakaoBlogSearchBuilder implements RestTemplateBuilder {
         return clause.getKeyword();
     }
 
-    private String buildSort(BlogSearchClause clause) {
+    private String buildSort(KakaoBlogSearchClause clause) {
         if (clause.getSort() == BlogSearchQuerySort.RECENCY) {
             return RECENCY;
         }
@@ -59,7 +59,7 @@ public class KakaoBlogSearchBuilder implements RestTemplateBuilder {
 
     @Override
     public String buildUri(Clause clause) {
-        var searchClause = (BlogSearchClause) clause;
+        var searchClause = (KakaoBlogSearchClause) clause;
         var restApiType = searchClause.getRestApiType();
 
         return UriComponentsBuilder.fromUriString(baseUrl)

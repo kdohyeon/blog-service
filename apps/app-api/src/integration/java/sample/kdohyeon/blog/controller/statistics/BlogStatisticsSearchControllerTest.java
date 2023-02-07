@@ -12,8 +12,8 @@ import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import sample.kdohyeon.blog.BlogApiTest;
-import sample.kdohyeon.blog.port.in.statistics.SearchBlogStatisticsUseCase;
-import sample.kdohyeon.blog.port.in.statistics.response.BlogStatisticsDto;
+import sample.kdohyeon.blog.port.input.statistics.SearchBlogStatisticsUseCase;
+import sample.kdohyeon.blog.port.input.statistics.response.BlogStatisticsDto;
 
 import java.util.Comparator;
 import java.util.List;

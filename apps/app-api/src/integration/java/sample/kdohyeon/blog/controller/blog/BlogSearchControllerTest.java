@@ -13,10 +13,10 @@ import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import sample.kdohyeon.blog.BlogApiTest;
-import sample.kdohyeon.blog.port.in.Pagination;
-import sample.kdohyeon.blog.port.in.blog.SearchBlogUseCase;
-import sample.kdohyeon.blog.port.in.blog.response.BlogDocumentDto;
-import sample.kdohyeon.blog.port.in.blog.response.BlogDto;
+import sample.kdohyeon.blog.port.input.Pagination;
+import sample.kdohyeon.blog.port.input.blog.SearchBlogUseCase;
+import sample.kdohyeon.blog.port.input.blog.response.BlogDocumentDto;
+import sample.kdohyeon.blog.port.input.blog.response.BlogDto;
 
 import static com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper.document;
 import static com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper.resourceDetails;

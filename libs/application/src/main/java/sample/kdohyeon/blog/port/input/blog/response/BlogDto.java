@@ -1,9 +1,9 @@
-package sample.kdohyeon.blog.port.in.blog.response;
+package sample.kdohyeon.blog.port.input.blog.response;
 
 import com.google.common.collect.Lists;
 import lombok.Builder;
 import lombok.Getter;
-import sample.kdohyeon.blog.port.in.Pagination;
+import sample.kdohyeon.blog.port.input.Pagination;
 
 import java.util.List;
 

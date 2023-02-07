@@ -8,7 +8,7 @@ public enum RestApiType {
     KAKAO_SEARCH_BLOGS("/v2/search/blog", HttpMethod.GET, ServiceProvider.KAKAO),
 
     // NAVER
-    NAVER_SEARCH_BLOGS("/v1/search/blog.json", HttpMethod.GET, ServiceProvider.NAVER),
+    NAVER_SEARCH_BLOGS("/v1/search/blog", HttpMethod.GET, ServiceProvider.NAVER),
     ;
 
     @Getter

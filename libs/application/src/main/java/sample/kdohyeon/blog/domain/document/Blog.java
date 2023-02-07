@@ -2,7 +2,7 @@ package sample.kdohyeon.blog.domain.document;
 
 import lombok.Builder;
 import lombok.Getter;
-import sample.kdohyeon.blog.port.in.Pagination;
+import sample.kdohyeon.blog.port.input.Pagination;
 
 import java.util.List;
 

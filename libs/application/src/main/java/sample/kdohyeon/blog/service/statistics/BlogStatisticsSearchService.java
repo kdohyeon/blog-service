@@ -3,10 +3,10 @@ package sample.kdohyeon.blog.service.statistics;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionOperations;
 import sample.kdohyeon.blog.converter.statistics.BlogStatisticsDtoConverter;
-import sample.kdohyeon.blog.port.in.statistics.SearchBlogStatisticsUseCase;
-import sample.kdohyeon.blog.port.in.statistics.command.SearchBlogStatisticsCommand;
-import sample.kdohyeon.blog.port.in.statistics.response.BlogStatisticsDto;
-import sample.kdohyeon.blog.port.out.statistics.BlogStatisticsPort;
+import sample.kdohyeon.blog.port.input.statistics.SearchBlogStatisticsUseCase;
+import sample.kdohyeon.blog.port.input.statistics.command.SearchBlogStatisticsCommand;
+import sample.kdohyeon.blog.port.input.statistics.response.BlogStatisticsDto;
+import sample.kdohyeon.blog.port.output.statistics.BlogStatisticsPort;
 
 import java.util.List;
 

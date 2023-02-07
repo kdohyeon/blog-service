@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;
 import sample.kdohyeon.blog.contract.blog.BlogSearchQuerySort;
 import sample.kdohyeon.blog.http.HttpIntegrationTest;
-import sample.kdohyeon.blog.port.out.blog.clause.BlogSearchClause;
+import sample.kdohyeon.blog.port.output.blog.clause.KakaoBlogSearchClause;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
@@ -25,7 +25,7 @@ class KakaoBlogHttpClientTest extends HttpIntegrationTest {
 
     @Test
     void testKakaoBlogHttpClient() {
-        var clause = BlogSearchClause.builder()
+        var clause = KakaoBlogSearchClause.builder()
                 .page(1)
                 .size(10)
                 .sort(BlogSearchQuerySort.ACCURACY)

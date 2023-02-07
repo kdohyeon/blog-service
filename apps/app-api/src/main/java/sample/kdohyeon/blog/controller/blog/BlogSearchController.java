@@ -4,9 +4,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sample.kdohyeon.blog.controller.blog.request.SearchBlogRequestBody;
-import sample.kdohyeon.blog.port.in.blog.SearchBlogUseCase;
-import sample.kdohyeon.blog.port.in.blog.command.BlogSearchCommand;
-import sample.kdohyeon.blog.port.in.blog.response.BlogDto;
+import sample.kdohyeon.blog.port.input.blog.SearchBlogUseCase;
+import sample.kdohyeon.blog.port.input.blog.command.BlogSearchCommand;
+import sample.kdohyeon.blog.port.input.blog.response.BlogDto;
 import sample.kdohyeon.common.protocol.response.ResultResponse;
 
 import javax.validation.Valid;

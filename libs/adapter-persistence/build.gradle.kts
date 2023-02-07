@@ -8,6 +8,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework:spring-tx")
 
+    implementation("org.flywaydb:flyway-core")
+
     implementation("com.querydsl:querydsl-jpa")
     implementation("com.querydsl:querydsl-core")
 

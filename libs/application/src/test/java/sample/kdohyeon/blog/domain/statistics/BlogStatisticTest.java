@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BlogStatisticTest {
-    @DisplayName("블로그 통계 엔티티를 생성")
+    @DisplayName("블로그 통계 엔티티를 생성한다.")
     @Test
     void create() {
         var fixtureMonkey = FixtureMonkey.builder()

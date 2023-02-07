@@ -1,12 +1,15 @@
 spring:
-  profiles:
-    active: local
   jpa:
     defer-datasource-initialization: true # 바로 쿼리 실행하기
     show-sql: true
     generate-ddl: true
     hibernate:
       ddl-auto: none
+  flyway:
+    enabled: false
+    encoding: utf-8
+    baseline-on-migrate: true
+    baseline-version: 0
   h2:
     console:
       enabled: true
@@ -22,3 +25,10 @@ spring:
     init:
       mode: always
       schema-locations: classpath:db/migration/V1__init.sql
+
+---
+spring.config.activate.on-profile: test
+
+spring:
+  flyway:
+   enabled: true

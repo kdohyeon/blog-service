@@ -2,6 +2,9 @@
 
 - 블로그를 검색할 수 있는 서비스를 제공합니다.
 
+# 빌드 결과물
+- [결과물 다운로드](https://github.com/kdohyeon/blog-service/blob/main/apps/app-api/build/libs/kakaobank.jar)
+
 # 환경 소개
 
 - JAVA 17

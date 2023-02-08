@@ -1,6 +1,6 @@
 [source,http,options="nowrap"]
 ----
-GET /api/v1/blogs?keyword=SpringFramework&page=1&size=10 HTTP/1.1
+GET /api/v1/blogs?keyword=SpringFramework&url=http%3A%2F%2Ftistory.com&sort=ACCURACY&page=1&size=10 HTTP/1.1
 Accept: application/json, application/javascript, text/javascript, text/json
 Host: localhost:8080
 

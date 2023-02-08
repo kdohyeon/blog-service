@@ -76,20 +76,21 @@ root
 ### 사용 방법
 
 ```bash
-$ curl 'http://localhost:8080/api/v1/blogs?keyword=SpringFramework&page=1&size=10' -i -X GET \
-    -H 'Accept: application/json, application/javascript, text/javascript, text/json'
-
-$ http GET 'http://localhost:8080/api/v1/blogs?keyword=SpringFramework&page=1&size=10' \
+$ http GET 'http://localhost:8080/api/v1/blogs?keyword=SpringFramework&url=aaa.tistory.com&sort=ACCURACY&page=1&size=10' \
     'Accept:application/json, application/javascript, text/javascript, text/json'
 ```
 
 ### 요청
 
-```bash
-GET /api/v1/blogs?keyword=SpringFramework&page=1&size=10 HTTP/1.1
-Accept: application/json, application/javascript, text/javascript, text/json
-Host: localhost:8080
-```
+Parameter
+
+|Name|Type| Description                                   |Required|
+|---|---|-----------------------------------------------|---|
+|keyword|String| 검색 키워드                                        |O|
+|url|String| 블로그 URL (특정 블로그 글만 검색하고 싶은 경우)                |X|
+|sort|String| ACCURACY (정확도순), RECENCY (최신순), 기본값: ACCURACY |X|
+|page|Integer| 페이지 번호, 기본값 1                                 |X|
+|size|Integer| 한 페이지에 보여질 문서 수, 기본값 10                       |X|
 
 ### 응답
 
@@ -130,20 +131,26 @@ Host: localhost:8080
 }
 ```
 
-|Path|Type|Description|
-|---|---|---|
-|`+success+`|`+Boolean+`|성공 여부|
-|`+code+`|`+String+`|code|
-|`+message+`|`+String+`|message|
-|`+data+`|`+Object+`|데이터|
-|`+data.documents[]+`|`+Array+`|블로그 문서 목록|
-|`+data.documents[].title+`|`+String+`|블로그 제목|
-|`+data.documents[].contents+`|`+String+`|블로그 내용|
-|`+data.documents[].url+`|`+String+`|블로그 주소|
-|`+data.documents[].blogName+`|`+String+`|블로그 이름|
-|`+data.documents[].thumbnail+`|`+String+`|이미지 썸네일|
-|`+data.documents[].writtenAt+`|`+String+`|블로그 글 작성 시간|
-|`+data.pagination+`|`+Object+`|페이지네이션|
+| Path                             | Type      | Description          |
+|----------------------------------|-----------|----------------------|
+| `success`                        | `Boolean` | 성공 여부                |
+| `code`                           | `String`  | 요청에 대한 코드값 (성공: 200) |
+| `message`                        | `String`  | 요청 실패에 대한 에러 메시지     |
+| `data`                           | `Object`  | 블로그 문서와 페이지네이션 데이터   |
+| `data.documents[]`               | `Array`   | 블로그 문서 목록            |
+| `data.documents[].title`         | `String`  | 블로그 제목               |
+| `data.documents[].contents`      | `String`  | 블로그 내용               |
+| `data.documents[].url`           | `String`  | 블로그 주소               |
+| `data.documents[].blogName`      | `String`  | 블로그 이름               |
+| `data.documents[].thumbnail`     | `String`  | 이미지 썸네일              |
+| `data.documents[].writtenAt`     | `String`  | 블로그 글 작성 시간          |
+| `data.pagination`                | `Object`  | 페이지네이션               |
+| `data.pagination.currentPage`    | `Number`  | 조회한 현재 페이지 번호        |
+| `data.pagination.totalPage`      | `Number`  | 조회에 대한 전체 페이지 개수     |
+| `data.pagination.totalItemCount` | `Number`  | 조회에 대한 전체 문서 개수      |
+| `data.pagination.countPerPage`   | `Number`  | 페이지 당 문서 개수          |
+| `data.pagination.hasNextPage`    | `Boolean` | 다음 페이지 존재 여부         |
+| `data.pagination.nextPage`       | `Number`  | 다음 페이지 번호            |
 
 ## 2. 인기 검색어 조회
 
@@ -155,17 +162,16 @@ Host: localhost:8080
 ### 사용하기
 
 ```bash
-$ curl 'http://localhost:8080/api/v1/blogs/statistics/popular?top=10' -i -X GET
-
 $ http GET 'http://localhost:8080/api/v1/blogs/statistics/popular?top=10'
 ```
 
 ### 요청
 
-```
-GET /api/v1/blogs/statistics/popular?top=10 HTTP/1.1
-Host: localhost:8080
-```
+Parameter
+
+|Name|Type| Description                                   |Required|
+|---|---|-----------------------------------------------|---|
+|top|Integer|인기 검색어를 조회하고자 하는 개수, 1~10, 기본값:10|X|
 
 ### 응답
 
@@ -218,14 +224,15 @@ Host: localhost:8080
   ]
 }
 ```
+
 |Path|Type|Description|
 |---|---|---|
-|`+success+`|`+Boolean+`|성공 여부|
-|`+code+`|`+String+`|code|
-|`+message+`|`+String+`|message|
-|`+data[]+`|`+Array+`|인기 블로그 검색어 목록|
-|`+data[].keyword+`|`+String+`|인기 블로그 검색어|
-|`+data[].count+`|`+Number+`|검색어 별 검색된 횟수|
+|`success`|`Boolean`|성공 여부|
+|`code`|`String`| 요청에 대한 코드값 (성공: 200) |
+|`message`|`String`| 요청 실패에 대한 에러 메시지     |
+|`data[]`|`Array`|인기 블로그 검색어 목록|
+|`data[].keyword`|`String`|인기 블로그 검색어|
+|`data[].count`|`Number`|검색어 별 검색된 횟수|
 
 # 실행하기
 

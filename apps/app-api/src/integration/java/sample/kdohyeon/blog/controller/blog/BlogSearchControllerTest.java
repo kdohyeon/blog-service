@@ -55,6 +55,8 @@ public class BlogSearchControllerTest extends BlogApiTest {
         var response = given()
                 .accept(ContentType.JSON)
                 .param("keyword", keyword)
+                .param("url", "http://tistory.com")
+                .param("sort", "ACCURACY")
                 .param("page", 1)
                 .param("size", 10)
                 .when()

@@ -12,7 +12,7 @@
 - Spring Boot 2.7.3
 - Gradle 기반 빌드
 - H2 인메모리
-- JUnit, MockMvc 기반 테스트 케이스 작성
+- JUnit, MockMvc, FixtureMonkey 기반 테스트 케이스 작성
 - REST docs 기반 API 명세 작성
 
 # 프로젝트 구성 소개
@@ -42,6 +42,7 @@ root
 ![module structure](assets/module_structure.png)
 
 ## module - application
+
 - 도메인 엔티티, 입력 포트, 출력 포트, 그리고 서비스 로직이 포함되어 있습니다.
   - `domain`
   - `service`
@@ -76,20 +77,20 @@ root
 ### 사용
 
 ```bash
-$ http GET 'http://localhost:8080/api/v1/blogs?keyword=SpringFramewor'
+$ http GET 'http://localhost:8080/api/v1/blogs?keyword=SpringFramework'
 ```
 
 ### 요청
 
 Parameter
 
-|Name|Type| Description                                   |Required|
-|---|---|-----------------------------------------------|---|
-|keyword|String| 검색 키워드                                        |O|
-|url|String| 블로그 URL (특정 블로그 글만 검색하고 싶은 경우)                |X|
-|sort|String| ACCURACY (정확도순), RECENCY (최신순), 기본값: ACCURACY |X|
-|page|Integer| 페이지 번호, 기본값 1                                 |X|
-|size|Integer| 한 페이지에 보여질 문서 수, 기본값 10                       |X|
+| Name       | Type      | Description                                   | Required |
+|------------|-----------|-----------------------------------------------|----------|
+| `keyword`  | `String`  | 검색 키워드                                        | O        |
+| `url`      | `String`  | 블로그 URL (특정 블로그 글만 검색하고 싶은 경우)                | X        |
+| `sort`     | `String`  | ACCURACY (정확도순), RECENCY (최신순), 기본값: ACCURACY | X        |
+| `page`     | `Integer` | 페이지 번호, 기본값 1                                 | X        |
+| `size`     | `Integer` | 한 페이지에 보여질 문서 수, 기본값 10                       | X        |
 
 ### 응답
 
@@ -168,9 +169,9 @@ $ http GET 'http://localhost:8080/api/v1/blogs/statistics/popular'
 
 Parameter
 
-|Name|Type| Description                                   |Required|
-|---|---|-----------------------------------------------|---|
-|top|Integer|인기 검색어를 조회하고자 하는 개수, 1~10, 기본값:10|X|
+| Name  | Type      | Description                                     | Required    |
+|-------|-----------|-------------------------------------------------|-------------|
+| `top` | `Integer` | 인기 검색어를 조회하고자 하는 개수, 1~10, 기본값:10               | X           |
 
 ### 응답
 

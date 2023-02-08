@@ -88,4 +88,18 @@ class SearchBlogStatisticsRequestBodyTest {
             assertThat(violations).isNotEmpty();
         });
     }
+
+    @DisplayName("top 이 null 이면 기본값으로 호출한다.")
+    @Test
+    void callWithDefaultWhenTopIsNull() {
+        // given
+        var request = new SearchBlogStatisticsRequestBody(null);
+
+        // when
+        Set<ConstraintViolation<SearchBlogStatisticsRequestBody>> violations = validator.validate(request);
+
+        // then
+        assertThat(violations).isEmpty();
+        assertThat(request.getTop()).isEqualTo(10L);
+    }
 }

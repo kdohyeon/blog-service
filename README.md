@@ -69,7 +69,7 @@ root
 - 정확도순, 최신순으로 정렬할 수 있습니다.
 - 페이지네이션 기능을 제공합니다.
 - 검색 소스는 [카카오 블로그 검색 OPEN API](https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide) 를 활용합니다.
-- 카카오 API 가 제대로 작동이 되지 않으면 [네이버 블로그 검색 OPEN API](https://developers.naver.com/docs/serviceapi/search/blog/blog.md) 로
+- 카카오 API 가 제대로 작동하지 않으면 [네이버 블로그 검색 OPEN API](https://developers.naver.com/docs/serviceapi/search/blog/blog.md) 로
   대체합니다.
 - RestTemplate 을 활용하여 HTTP 통신을 합니다.
 

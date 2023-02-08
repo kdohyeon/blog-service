@@ -73,11 +73,10 @@ root
   대체합니다.
 - RestTemplate 을 활용하여 HTTP 통신을 합니다.
 
-### 사용 방법
+### 사용
 
 ```bash
-$ http GET 'http://localhost:8080/api/v1/blogs?keyword=SpringFramework&url=aaa.tistory.com&sort=ACCURACY&page=1&size=10' \
-    'Accept:application/json, application/javascript, text/javascript, text/json'
+$ http GET 'http://localhost:8080/api/v1/blogs?keyword=SpringFramewor'
 ```
 
 ### 요청
@@ -159,10 +158,10 @@ Parameter
 - DB 는 H2 데이터베이스를 활용합니다.
 - JPA, QueryDSL 을 활용하여 DB 컨트롤을 합니다.
 
-### 사용하기
+### 사용
 
 ```bash
-$ http GET 'http://localhost:8080/api/v1/blogs/statistics/popular?top=10'
+$ http GET 'http://localhost:8080/api/v1/blogs/statistics/popular'
 ```
 
 ### 요청

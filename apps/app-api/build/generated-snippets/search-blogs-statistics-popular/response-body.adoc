@@ -5,35 +5,35 @@
   "code" : "SUCCEED",
   "message" : null,
   "data" : [ {
-    "keyword" : "}",
-    "count" : 23623965023506
+    "keyword" : "\u0003^&t\u0015x(/kqj1\u000E;gsy[\u00111\u0019",
+    "count" : 11599039876499
   }, {
-    "keyword" : "\u0017n2\u0003/k\u000F-N#6;\u001EAKK\u001A&1\u0006q\u001BJW'5\\",
-    "count" : 17791905797379
+    "keyword" : "m'3!h)[\n=7",
+    "count" : 11223342536062
   }, {
-    "keyword" : "l1Ko.&\u000E0;\\\b\\r4z~$Ng\\KW?Ap$i9",
-    "count" : 6501903
+    "keyword" : "\u0001&oI^+bPR\",:jCP",
+    "count" : 3826931352
   }, {
-    "keyword" : "j)Md%b\u0012\u0003\tIO`X\u000B\fFV\u0001b0\u0004(FqKT\fWJ",
-    "count" : 4968430
+    "keyword" : "~j",
+    "count" : 1480041885
   }, {
-    "keyword" : "3\u001AsIK\u001B~L\u0010\u0018\\;^Db\u0019bL6\u001Eo",
-    "count" : 6903
+    "keyword" : "\u0013\u001Eag\n-1\u0005;d|'wiQ",
+    "count" : 2751606
   }, {
-    "keyword" : "Jz\u0019I5\u0005C>h\u001D1]7\u0011i\u0010",
-    "count" : 1201
+    "keyword" : "\u000B>B\u0002[4M\u00144zA#501i\u001E\b!|y};[ \f[3\u0014\u0015",
+    "count" : 1321406
   }, {
-    "keyword" : ">\u0010-qV^'Gha\u0012\u0007",
-    "count" : 957
+    "keyword" : "\u000Bd`Bi/.W\u0002\u0007",
+    "count" : 308671
   }, {
-    "keyword" : "#06xH\fOtB\u0003.w<iE~'}U,_/A$\u0002^u",
-    "count" : 589
+    "keyword" : "D5[",
+    "count" : 262936
   }, {
-    "keyword" : "S+U\u0004AB\u001A]\u0007U^\u0005\u001F",
-    "count" : 171
+    "keyword" : "\u001C}\u0003ca8",
+    "count" : 814
   }, {
-    "keyword" : "\u0004&\\[\u000Fu%5\u0017k",
-    "count" : 23
+    "keyword" : "\u000FU,\u0010([D",
+    "count" : 42
   } ]
 }
 ----

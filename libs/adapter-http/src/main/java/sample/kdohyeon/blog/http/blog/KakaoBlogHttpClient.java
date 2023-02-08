@@ -46,6 +46,6 @@ public class KakaoBlogHttpClient {
         );
 
         KakaoBlogResponse kakaoBlogResponse = objectMapperUtil.readValue(response, KakaoBlogResponse.class);
-        return blogConverter.converter(kakaoBlogResponse, clause.getPage(), clause.getSize());
+        return blogConverter.converter(kakaoBlogResponse, clause);
     }
 }

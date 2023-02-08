@@ -3,7 +3,6 @@ package sample.kdohyeon.blog.http.blog.response;
 import lombok.Getter;
 
 import java.beans.ConstructorProperties;
-import java.time.ZonedDateTime;
 import java.util.List;
 
 @Getter

@@ -7,12 +7,10 @@ import sample.kdohyeon.blog.contract.blog.BlogSearchQuerySort;
 import sample.kdohyeon.blog.port.output.Clause;
 
 @Getter
-public class KakaoBlogSearchClause implements Clause {
+public class KakaoBlogSearchClause extends Clause {
     private final String keyword;
     private final String url;
     private final BlogSearchQuerySort sort;
-
-    private final RestApiType restApiType;
 
     private final int page;
     private final int size;
@@ -20,10 +18,11 @@ public class KakaoBlogSearchClause implements Clause {
     @Builder
     public KakaoBlogSearchClause(String keyword, String url, BlogSearchQuerySort sort,
                                  int page, int size) {
+        super(RestApiType.KAKAO_SEARCH_BLOGS);
+
         this.keyword = keyword;
         this.url = url;
         this.sort = sort;
-        this.restApiType = RestApiType.KAKAO_SEARCH_BLOGS;
         this.page = page;
         this.size = size;
     }

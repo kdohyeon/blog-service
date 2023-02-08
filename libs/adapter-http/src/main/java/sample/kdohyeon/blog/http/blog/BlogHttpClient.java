@@ -31,8 +31,8 @@ public class BlogHttpClient implements BlogPort {
         return kakaoBlogHttpClient.searchBlogDocuments(KakaoBlogSearchClause.of(clause));
     }
 
-    public Blog callNaver(BlogSearchClause clause, Exception e) {
-        log.error("카카오 블로그 조회에 실패하여 네이버 블로그 조회로 변경합니다. errMsg: {}", e.getMessage(), e);
+    public Blog callNaver(BlogSearchClause clause, Throwable e) {
+        log.warn("카카오 블로그 조회에 실패하여 네이버 블로그 조회로 변경합니다. errMsg: {}", e.getMessage(), e);
         return naverBlogHttpClient.searchBlogDocuments(NaverBlogSearchClause.of(clause));
     }
 }

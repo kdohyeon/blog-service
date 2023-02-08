@@ -46,6 +46,6 @@ public class NaverBlogHttpClient {
         );
 
         NaverBlogResponse blogResponse = objectMapperUtil.readValue(response, NaverBlogResponse.class);
-        return blogConverter.converter(blogResponse, clause.getStart(), clause.getDisplay());
+        return blogConverter.converter(blogResponse, clause);
     }
 }

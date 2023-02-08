@@ -7,6 +7,8 @@ import sample.kdohyeon.blog.domain.document.BlogDocument;
 import sample.kdohyeon.blog.http.blog.response.KakaoBlogResponse;
 import sample.kdohyeon.blog.http.blog.response.NaverBlogResponse;
 import sample.kdohyeon.blog.port.input.Pagination;
+import sample.kdohyeon.blog.port.output.blog.clause.KakaoBlogSearchClause;
+import sample.kdohyeon.blog.port.output.blog.clause.NaverBlogSearchClause;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -16,7 +18,9 @@ import java.time.format.DateTimeFormatter;
 
 @Component
 public class BlogConverter {
-    public Blog converter(KakaoBlogResponse source, int page, int size) {
+    public Blog converter(KakaoBlogResponse source, KakaoBlogSearchClause clause) {
+        var page = clause.getPage();
+        var size = clause.getSize();
         var documents = source.getDocuments();
         var meta = source.getMeta();
 
@@ -44,7 +48,9 @@ public class BlogConverter {
                 .build();
     }
 
-    public Blog converter(NaverBlogResponse source, int page, int size) {
+    public Blog converter(NaverBlogResponse source, NaverBlogSearchClause clause) {
+        var page = clause.getStart();
+        var size = clause.getDisplay();
         var documents = source.getItems();
 
         return Blog.builder()

@@ -1,10 +1,6 @@
 spring:
   jpa:
-    defer-datasource-initialization: true # 바로 쿼리 실행하기
     show-sql: true
-    generate-ddl: true
-    hibernate:
-      ddl-auto: none
   flyway:
     enabled: false
     encoding: utf-8
